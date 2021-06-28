@@ -20,8 +20,18 @@ body {
   font-size: 16px;
 }
 
+// 1. 在父元素上加display: flex 和 flex: direction: column;
+// 2. 在子元素上加flex: 1;
+// 即可让子元素的高度占满父元素（一定要是父子元素，爷孙元素不行）
 #root{
   margin: 0 auto;
   background: lightgreen;
+  display: flex;
+  flex-direction: column;
+}
+.App{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 

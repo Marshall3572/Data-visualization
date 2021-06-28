@@ -1,11 +1,42 @@
 @import "../shared/helper";
 
 .home {
-    header{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    > header {
         // div默认宽度为100%,所以不用写
         // width: px(367);
         height: px(99);
         // 宽高设置好的前提下,让图片cover住整个div
         background-size: cover;
+    }
+    > main {
+        flex: 1;
+        display: grid;
+        // 忘了用法可查MDN
+        grid-template:
+            "box1 box2 box4 box5" 755fr
+            "box3 box3 box4 box5" 363fr / 366fr 361fr 811fr 747fr;
+        > .section1 {
+            grid-area: box1;
+            background: red;
+        }
+        > .section2 {
+            grid-area: box2;
+            background: orange;
+        }
+        > .section3 {
+            grid-area: box3;
+            background: yellow;
+        }
+        > .section4 {
+            grid-area: box4;
+            background: blue;
+        }
+        > .section5 {
+            grid-area: box5;
+            background: black;
+        }
     }
 }
