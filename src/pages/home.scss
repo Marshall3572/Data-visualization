@@ -1,7 +1,11 @@
 @import "../shared/helper";
 
-.x{
-    width: px(367);
-    height: px(315);
-    border: 1px solid red;
+.home {
+    header{
+        // div默认宽度为100%,所以不用写
+        // width: px(367);
+        height: px(99);
+        // 宽高设置好的前提下,让图片cover住整个div
+        background-size: cover;
+    }
 }
