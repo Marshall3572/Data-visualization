@@ -3,6 +3,7 @@ import './home.scss';
 import headerBg from '../images/header.jpg';
 import { Chart1 } from '../components/chart-1';
 import { Chart2 } from '../components/chart-2';
+import { Chart3 } from '../components/chart-3';
 
 
 export const Home = () => {
@@ -17,13 +18,14 @@ export const Home = () => {
           <Chart1 />
           <Chart2 />
         </section>
-        <section className="bordered section2"></section>
+        
+        <section className="bordered section2"><Chart3 /></section>
         <section className="bordered section3"></section>
         <section className="bordered section4"></section>
         <section className="bordered section5"></section>
       </main>
       <footer>
-        The time now is {year}.{mouth < 10 ? "0" + mouth : mouth}.{day< 10 ? "0" + day : day}
+        The time now is {year}.{mouth < 10 ? "0" + mouth : mouth}.{day < 10 ? "0" + day : day}
         <div>
           Made By Marshall_Liu in 2021
         </div>
