@@ -15,6 +15,8 @@
         background-size: cover;
     }
     > footer {
+        text-shadow: 0 0 px(3) white;
+
         font-size: px(18);
         height: px(68);
         border: 1px solid #0d2d59;
@@ -92,7 +94,8 @@
         .发案趋势,
         .案发时段,
         .战果,
-        .籍贯 {
+        .籍贯,
+        .年龄段 {
             height: px(315);
             display: flex;
             flex-direction: column;
@@ -203,6 +206,24 @@
                     bottom: px(10);
                     right: px(10);
                 }
+            }
+        }
+        .年龄段 {
+            height: px(363);
+            > .charts {
+                width: 100%;
+                flex: 1;
+                border: 1px solid red;
+                display: flex;
+                padding: px(30);
+            }
+            &-图1,
+            &-图2,
+            &-图3 {
+                flex: 1;
+                border: 1px solid red;
+                display: flex;
+                flex-direction: column;
             }
         }
     }
