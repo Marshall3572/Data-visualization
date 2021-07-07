@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './home.scss';
-import headerBg from '../images/header.png';
+import headerBg from '../images/header.jpg';
 import { Chart1 } from '../components/chart-1';
 import { Chart2 } from '../components/chart-2';
 
