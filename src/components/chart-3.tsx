@@ -9,12 +9,12 @@ export const Chart3 = () => {
         var myChart = echarts.init(divRef.current);
         myChart.setOption(createEchartsOptions({
             legend: {
-                bottom: px(10),
-                textStyle: {color: 'white'},
-                itemWidth: px(30),
-                itemHeight: px(16)
-              },
-              grid: {
+              bottom: px(10),
+              textStyle: {color: 'white'},
+              itemWidth: px(30),
+              itemHeight: px(16)
+            },
+            grid: {
                 x: px(20),
                 x2: px(20),
                 y: px(20),
