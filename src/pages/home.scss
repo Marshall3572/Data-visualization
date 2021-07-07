@@ -87,6 +87,18 @@
         }
         > .section5 {
             grid-area: box5;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            > .row1 {
+                height: px(317);
+            }
+            > .row2 {
+                height: px(317);
+            }
+            > .row3 {
+                height: px(455);
+            }
         }
         .管辖统计,
         .破获排名,
@@ -94,7 +106,10 @@
         .案发时段,
         .战果,
         .籍贯,
-        .年龄段 {
+        .年龄段,
+        .案发类型,
+        .案发街道,
+        .作案手段 {
             height: px(315);
             display: flex;
             flex-direction: column;
@@ -114,6 +129,11 @@
                 line-height: px(24);
                 padding: px(10) px(28);
                 text-shadow: 0 0 px(3) white;
+            }
+            .charts {
+                width: 100%;
+                flex: 1;
+                display: flex;
             }
             .chart {
                 width: 100%;
@@ -210,9 +230,6 @@
         .年龄段 {
             height: px(363);
             > .charts {
-                width: 100%;
-                flex: 1;
-                display: flex;
                 padding: px(30);
             }
             &-图1,
@@ -266,13 +283,17 @@
                 width: px(290);
                 flex-shrink: 0;
                 .legend {
-                      justify-content: flex-start;
+                    justify-content: flex-start;
                 }
             }
             &-图3 {
                 border: 1px solid #08397d;
-                h3 {font-size: px(20); color: #7ab6db; margin-top: px(6);}
-              }
+                h3 {
+                    font-size: px(20);
+                    color: #7ab6db;
+                    margin-top: px(6);
+                }
+            }
         }
     }
 }
