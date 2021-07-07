@@ -11,7 +11,6 @@ export const Chart1 = () => {
     useEffect(() => {
         var myChart = echarts.init(divRef.current);
         myChart.setOption(createEchartsOptions({
-            ...baseEchartoptions,
             xAxis: {
                 data: ['兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区'],
                 axisTick: { show: false },

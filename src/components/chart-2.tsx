@@ -11,7 +11,6 @@ export const Chart2 = () => {
     useEffect(() => {
         var myChart = echarts.init(divRef.current);
         myChart.setOption(createEchartsOptions({
-            ...baseEchartoptions,
             xAxis: {
                 type: 'value',
                 boundaryGap: [0, 0.01]
