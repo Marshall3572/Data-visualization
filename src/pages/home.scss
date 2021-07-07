@@ -16,7 +16,6 @@
     }
     > footer {
         text-shadow: 0 0 px(3) white;
-
         font-size: px(18);
         height: px(68);
         border: 1px solid #0d2d59;
@@ -213,7 +212,6 @@
             > .charts {
                 width: 100%;
                 flex: 1;
-                border: 1px solid red;
                 display: flex;
                 padding: px(30);
             }
@@ -221,9 +219,46 @@
             &-图2,
             &-图3 {
                 flex: 1;
-                border: 1px solid red;
                 display: flex;
                 flex-direction: column;
+            }
+            &-图1 {
+                .legend {
+                    height: px(40);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    > span {
+                        display: inline-block;
+                        width: px(40);
+                        height: px(20);
+                        border-radius: px(4);
+                        margin: 0 px(10);
+                    }
+                    .male {
+                        background: #33a4fa;
+                    }
+                    .female {
+                        background: #8d70f8;
+                    }
+                }
+                .chart {
+                    position: relative;
+                    display: flex;
+                    > .main {
+                        flex: 1;
+                    }
+                    > .text {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        color: #33a4fa;
+                        font-size: px(40);
+                        text-shadow: 0 0 px(20) #33a4fa;
+                        font-weight: bold;
+                    }
+                }
             }
         }
     }
