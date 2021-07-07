@@ -7,7 +7,8 @@ import { Chart2 } from '../components/chart-2';
 
 export const Home = () => {
   const year = new Date().getFullYear();
-  const mouth = new Date().getMonth()+1;
+  const mouth = new Date().getMonth() + 1;
+  const day = new Date().getDate();
   return (
     <div className="home">
       <header style={{ backgroundImage: `url(${headerBg})` }} />
@@ -21,7 +22,12 @@ export const Home = () => {
         <section className="bordered section4"></section>
         <section className="bordered section5"></section>
       </main>
-      <footer>Made by Marshall in {year}.{mouth < 10 ? "0"+mouth : mouth}</footer>
+      <footer>
+        The time now is {year}.{mouth < 10 ? "0" + mouth : mouth}.{day< 10 ? "0" + day : day}
+        <div>
+          Made By Marshall_Liu in 2021
+        </div>
+      </footer>
     </div>
   );
 };
