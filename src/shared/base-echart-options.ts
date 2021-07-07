@@ -1,6 +1,6 @@
 import { px } from '../shared/px';
 
-export const baseEchartoptions = {
+export const baseEchartOptions = {
     textStyle: {
         fontSize: px(12),
         color: '#79839e'

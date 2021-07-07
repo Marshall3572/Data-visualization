@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 import { px } from '../shared/px';
-import { baseEchartoptions } from '../shared/base-echart-options';
-import { createEchartsOptions } from '../shared/create-echats-options';
+import { baseEchartOptions } from '../shared/base-echart-options';
+import { createEchartsOptions } from '../shared/create-echarts-options';
 
 export const Chart1 = () => {
     // 使用钩子
