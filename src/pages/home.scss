@@ -175,9 +175,12 @@
                 }
             }
         }
-        .战果 {
+        .战果, .作案手段 {
+            padding: 0 px(24);
             > table {
-                margin-top: px(38);
+                width: 100%;
+                table-layout: fixed;
+                margin-top: px(25);
                 // 让表格之间合并
                 border-collapse: collapse;
                 th,
@@ -199,6 +202,15 @@
                 }
             }
         }
+        .作案手段 {
+            > table {
+              tbody {
+                td {
+                  height: px(26);
+                }
+              }
+            }
+          }
         .籍贯 {
             height: px(753);
             background: transparent;

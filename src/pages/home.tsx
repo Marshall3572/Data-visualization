@@ -62,6 +62,7 @@ export const Home = () => {
           </div>
           <div className="bordered row3 作案手段">
             <h2>作案手段分析</h2>
+            <Chart14 />
           </div>
         </section>
       </main>
