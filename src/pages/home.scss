@@ -84,6 +84,9 @@
         }
         > .section4 {
             grid-area: box4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         > .section5 {
             grid-area: box5;
