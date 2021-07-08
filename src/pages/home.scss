@@ -1,5 +1,4 @@
 @import "../shared/helper";
-
 // placeholder复用代码
 %legend {
     height: px(40);
@@ -25,11 +24,10 @@
     color: white;
     font-size: px(16);
     > header {
-        width: px(2420);
         height: px(99);
-        margin: 0 auto;
-        // 宽高设置好的前提下,让图片cover住整个div
         background-size: cover;
+        width: px(2420);
+        margin: 0 auto;
     }
     > footer {
         text-shadow: 0 0 px(3) white;
@@ -50,8 +48,6 @@
     > main {
         width: px(2420);
         margin: 0 auto;
-        // 直接设置文字居中，不用对h2操作
-        text-align: center;
         padding-top: px(30);
         flex: 1;
         display: grid;
@@ -68,7 +64,7 @@
             border: 1px solid #0764bc;
             border-radius: 4px;
             position: relative;
-            box-shadow: 0 0 2px 0 #0f3361, inset 0 0 2px 0 #0f3361;
+            box-shadow: 0 0 2px 0 #0e325f, inset 0 0 2px 0 #0e325f;
             background: #0f113a;
             &::before {
                 // 让before对鼠标无反应
@@ -80,9 +76,8 @@
                 bottom: 0;
                 top: 0;
                 border-radius: 4px;
-                // 用来做边框渐变
-                box-shadow: 17px 0 0 -16px #0f3361, -17px 0 0 -16px #0f3361, 0 17px 0 -16px #0f3361,
-                    0 -17px 0 -16px #0f3361, 9px 0 0 -8px #0d4483, 9px 0 0 -8px #0d4483, 0 9px 0 -8px #0d4483,
+                box-shadow: 17px 0 0 -16px #0e325f, -17px 0 0 -16px #0e325f, 0 17px 0 -16px #0e325f,
+                    0 -17px 0 -16px #0e325f, 9px 0 0 -8px #0d4483, -9px 0 0 -8px #0d4483, 0 9px 0 -8px #0d4483,
                     0 -9px 0 -8px #0d4483;
             }
         }
@@ -158,15 +153,14 @@
                 display: flex;
             }
             .chart {
-                width: 100%;
                 flex: 1;
+                width: 100%;
             }
         }
         .发案趋势,
         .案发时段 {
             height: px(363);
         }
-
         .chart11,
         .chart12 {
             flex: 1;
@@ -182,106 +176,12 @@
                 @extend %legend;
             }
         }
-        .破获排名 {
-            height: px(423);
-            .legend {
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                width: 100%;
-                padding: 0 px(20) px(10);
-                > .first,
-                > .second {
-                    display: inline-block;
-                    width: px(18);
-                    height: px(12);
-                    margin: 0 px(10);
-                }
-                .first {
-                    background: linear-gradient(90deg, #2034f9 0%, #04a1ff 100%);
-                }
-                .second {
-                    background: linear-gradient(90deg, #b92ae8 0%, #6773e7 100%);
-                }
-            }
-        }
-        .战果,
-        .作案手段 {
-            padding: 0 px(24);
-            > table {
-                width: 100%;
-                table-layout: fixed;
-                margin-top: px(25);
-                // 让表格之间合并
-                border-collapse: collapse;
-                th,
-                td {
-                    border: 1px solid #1a3671;
-                }
-                thead {
-                    th {
-                        height: px(70);
-                        box-shadow: inset 0 0 px(60) 0 #1f3d85;
-                    }
-                }
-                tbody {
-                    td {
-                        height: px(50);
-                        width: px(84);
-                        background: #1c2456;
-                    }
-                }
-            }
-        }
-        .作案手段 {
-            > table {
-                tbody {
-                    td {
-                        height: px(26);
-                    }
-                }
-            }
-        }
-        .籍贯 {
-            height: px(753);
-            background: transparent;
-            > .wrapper {
-                position: relative;
-                width: 100%;
-                display: flex;
-                flex: 1;
-                flex-direction: column;
-                .chart {
-                    flex: 1;
-                }
-                .legend {
-                    position: absolute;
-                    top: px(40);
-                    left: px(20);
-                    display: flex;
-                    align-items: center;
-                    font-size: px(22);
-                    padding: px(20) px(10) px(20) 0;
-                    border-radius: 0;
-                    .icon {
-                        margin: 0 px(10);
-                        display: inline-block;
-                        width: px(16);
-                        height: px(16);
-                        border-radius: 50%;
-                    }
-                }
-                .notes {
-                    position: absolute;
-                    bottom: px(10);
-                    right: px(10);
-                }
-            }
-        }
         .年龄段 {
+            display: flex;
+            flex-direction: column;
             height: px(363);
             > .charts {
-                padding: px(20);
+                padding: px(30);
             }
             &-图1,
             &-图2,
@@ -293,7 +193,7 @@
             &-图1,
             &-图2 {
                 .legend {
-                    .legend { @extend %legend;}
+                    @extend %legend;
                     .male {
                         background: #33a4fa;
                     }
@@ -332,6 +232,103 @@
                     font-size: px(20);
                     color: #7ab6db;
                     margin-top: px(6);
+                }
+            }
+        }
+        .籍贯 {
+            height: px(753);
+            background: transparent;
+            > .wrapper {
+                position: relative;
+                width: 100%;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                .chart {
+                    flex: 1;
+                }
+                .legend {
+                    position: absolute;
+                    top: px(40);
+                    left: px(20);
+                    display: flex;
+                    align-items: center;
+                    font-size: px(22);
+                    padding: px(20) px(10) px(20) 0;
+                    border-radius: 0;
+                    .icon {
+                        margin: 0 px(10);
+                        display: inline-block;
+                        width: px(16);
+                        height: px(16);
+                        border-radius: 50%;
+                        background: #1cecd9;
+                    }
+                }
+                .notes {
+                    position: absolute;
+                    bottom: px(10);
+                    right: px(10);
+                }
+            }
+        }
+        .战果,
+        .作案手段 {
+            padding: 0 px(24);
+            > table {
+                width: 100%;
+                table-layout: fixed;
+                margin-top: px(25);
+                border-collapse: collapse;
+                th,
+                td {
+                    border: 1px solid #1a3671;
+                }
+                thead {
+                    th {
+                        height: px(70);
+                        box-shadow: inset 0 0 px(60) 0 #1f3d85;
+                    }
+                }
+                tbody {
+                    td {
+                        height: px(50);
+                        width: px(84);
+                        background: #1c2456;
+                    }
+                }
+            }
+        }
+        .作案手段 {
+            > table {
+                tbody {
+                    td {
+                        height: px(26);
+                    }
+                }
+            }
+        }
+        .破获排名 {
+            height: px(423);
+            .legend {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                width: 100%;
+                padding: 0 px(20) px(10);
+                > .first,
+                > .second {
+                    display: inline-block;
+                    width: px(18);
+                    height: px(12);
+                    background: red;
+                    margin: 0 px(10);
+                }
+                .first {
+                    background: linear-gradient(90deg, #2034f9 0%, #04a1ff 100%);
+                }
+                .second {
+                    background: linear-gradient(90deg, #b92ae8 0%, #6773e7 100%);
                 }
             }
         }

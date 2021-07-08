@@ -40,7 +40,7 @@ export const Chart7 = () => {
   }, []);
 
   return (
-    <div className="年龄段-图1">7
+    <div className="年龄段-图1">
       <div className="chart">
         <div className="main" ref={divRef}/>
         <div className="text">性别</div>
