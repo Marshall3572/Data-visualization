@@ -147,6 +147,11 @@
         .案发时段 {
             height: px(363);
         }
+        .chart12 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
         .破获排名 {
             height: px(423);
             .legend {
@@ -233,7 +238,7 @@
         .年龄段 {
             height: px(363);
             > .charts {
-                padding: px(30);
+                padding: px(20);
             }
             &-图1,
             &-图2,
