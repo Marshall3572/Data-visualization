@@ -11,7 +11,7 @@ yarn dev
 部署
 
 ```bash
-yarn build
+yarn build --base ./
 ```
 
 预览
