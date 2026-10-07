@@ -1,13 +1,13 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import * as echarts from 'echarts';
+import { useEcharts } from '../shared/use-echarts';
 import {createEchartsOptions} from '../shared/create-echarts-options';
 import {px} from '../shared/px';
 
 export const Chart4 = () => {
     const divRef = useRef(null)
-    useEffect(() => {
-        var myChart = echarts.init(divRef.current);
-        myChart.setOption(createEchartsOptions({
+    useEcharts(divRef, () => {
+        return createEchartsOptions({
           xAxis: {
             type: 'category',
             boundaryGap: false,
@@ -47,8 +47,8 @@ export const Chart4 = () => {
               }]),
             }
           }]
-        }));
-    },[])
+        });
+    })
     return (
         <div className="bordered 案发时段">
             <h2>案发时段分析</h2>

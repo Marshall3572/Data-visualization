@@ -1,16 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import * as echarts from 'echarts';
-import { px } from '../shared/px';
-import { baseEchartOptions } from '../shared/base-echart-options';
+import { useEcharts } from '../shared/use-echarts';
 import { createEchartsOptions } from '../shared/create-echarts-options';
 
 export const Chart2 = () => {
     // 使用钩子
     const divRef = useRef(null);
     // 挂载后执行
-    useEffect(() => {
-        var myChart = echarts.init(divRef.current);
-        myChart.setOption(createEchartsOptions({
+    useEcharts(divRef, () => {
+        return createEchartsOptions({
             xAxis: {
                 type: 'value',
                 boundaryGap: [0, 0.01],
@@ -33,35 +31,31 @@ export const Chart2 = () => {
                 type: 'bar',
                 data: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 itemStyle: {
-                    normal: {
-                      color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
+                    color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
                         offset: 0,
                         color: '#2034f9'
                       }, {
                         offset: 1,
                         color: '#04a1ff'
-                      }]),
-                    }
-                  }
+                    }]),
+                }
             }, {
                 name: '2012年',
                 type: 'bar',
                 data: [2, 3, 4, 5, 6, 7, 8, 9, 10],
                 itemStyle: {
-                    normal: {
-                      color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
+                    color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
                         offset: 0,
                         color: '#b92ae8'
                       }, {
                         offset: 1,
                         color: '#6773e7'
-                      }]),
-                    }
-                  }
+                    }]),
+                }
             }
             ]
-        }));
-    }, [])
+        });
+    });
 
     return (
         <div className="bordered 破获排名">

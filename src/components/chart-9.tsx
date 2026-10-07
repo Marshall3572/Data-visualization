@@ -1,13 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import * as echarts from 'echarts';
+import { useEcharts } from '../shared/use-echarts';
 import { createEchartsOptions } from '../shared/create-echarts-options';
 import { px } from '../shared/px';
 
 export const Chart9 = () => {
   const divRef = useRef(null);
-  useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartsOptions({
+  useEcharts(divRef, () => {
+    return createEchartsOptions({
       color: '#F7A110',
       xAxis: {
         type: 'category',
@@ -46,8 +46,8 @@ export const Chart9 = () => {
           }]),
         }
       }]
-    }));
-  }, []);
+    });
+  });
 
   return (
     <div className="年龄段-图3">

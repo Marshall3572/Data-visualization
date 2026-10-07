@@ -1,5 +1,6 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import * as echarts from 'echarts';
+import { useEcharts } from '../shared/use-echarts';
 import {createEchartsOptions} from '../shared/create-echarts-options';
 
 export const Chart13 = () => {
@@ -15,9 +16,8 @@ export const Chart13 = () => {
     {value: 0.08, name: '酒泉路'},
     {value: 0.08, name: '天水路'},
   ];
-  useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartsOptions({
+  useEcharts(divRef, () => {
+    return createEchartsOptions({
       xAxis: {
         data: data.map(i => i.name),
         axisTick: {show: false},
@@ -60,8 +60,8 @@ export const Chart13 = () => {
           color: '#1E34FA'
         }]),
       }]
-    }));
-  }, []);
+    });
+  });
 
   return (
     <div ref={divRef} className="chart">

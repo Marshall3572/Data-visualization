@@ -1,5 +1,5 @@
-import React, {useEffect, useRef} from 'react';
-import * as echarts from 'echarts';
+import React, {useRef} from 'react';
+import { useEcharts } from '../shared/use-echarts';
 import {createEchartsOptions} from '../shared/create-echarts-options';
 import {px} from '../shared/px';
 
@@ -16,9 +16,8 @@ export const Chart12 = () => {
     {value: 0.08, name: '酒泉路'},
     {value: 0.08, name: '天水路'},
   ];
-  useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartsOptions({
+  useEcharts(divRef, () => {
+    return createEchartsOptions({
       xAxis: {show: false},
       yAxis: {show: false},
       grid: {x: 0, x2: 0, y: 0, y2: 0, containLabel: true},
@@ -51,8 +50,8 @@ export const Chart12 = () => {
           }
         }
       ]
-    }));
-  }, []);
+    });
+  });
 
   return (
     <div className="chart12">

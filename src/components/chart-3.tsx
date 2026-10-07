@@ -1,13 +1,12 @@
-import React, { useEffect, useRef } from 'react';
-import * as echarts from 'echarts';
+import React, { useRef } from 'react';
+import { useEcharts } from '../shared/use-echarts';
 import { createEchartsOptions } from '../shared/create-echarts-options';
 import { px } from '../shared/px';
 
 export const Chart3 = () => {
     const divRef = useRef(null);
-    useEffect(() => {
-        var myChart = echarts.init(divRef.current);
-        myChart.setOption(createEchartsOptions({
+    useEcharts(divRef, () => {
+        return createEchartsOptions({
             legend: {
               bottom: px(10),
               textStyle: {color: 'white'},
@@ -72,8 +71,8 @@ export const Chart3 = () => {
                 symbolSize: px(12),
                 lineStyle: {width: px(2)}
             }))
-        }));
-    }, [])
+        });
+    })
     return (
         <div className="bordered 发案趋势">
             <h2>发案趋势分析</h2>

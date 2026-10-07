@@ -1,14 +1,13 @@
-import React, { useEffect, useRef } from 'react';
-import * as echarts from 'echarts';
+import React, { useRef } from 'react';
+import { useEcharts } from '../shared/use-echarts';
 import { createEchartsOptions } from '../shared/create-echarts-options';
 import { px } from '../shared/px';
 
 export const Chart8 = () => {
   const divRef = useRef(null);
   const colors = ['#856BED', '#F46064', '#F38E1C', '#1CDB7C', '#33A4FA'];
-  useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartsOptions({
+  useEcharts(divRef, () => {
+    return createEchartsOptions({
       color: colors,
       xAxis: { show: false },
       yAxis: { show: false },
@@ -20,7 +19,7 @@ export const Chart8 = () => {
           radius: ['75%', '90%'],
           avoidLabelOverlap: false,
           label: {
-            show: true, position: 'inside', textStyle: { color: 'white', fontSize: px(20) },
+            show: true, position: 'inside', color: 'white', fontSize: px(20),
             formatter(options) {
               // 浮点数计算会出现精度问题，要进行取整操作
               return (options.value * 100).toFixed(0) + '%';
@@ -40,8 +39,8 @@ export const Chart8 = () => {
           ]
         }
       ]
-    }));
-  }, []);
+    });
+  });
 
   return (
     <div className="年龄段-图2">

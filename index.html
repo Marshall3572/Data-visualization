@@ -6,28 +6,37 @@
   <meta name="viewport"
     content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
   <title>Data-Visualization</title>
-  <!-- 设置1rem = Wp/100 -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- 保持大屏的 16:9 比例，并在窗口变化时更新缩放。 -->
   <script>
-    const clientWidth = document.documentElement.clientWidth
-    const clientHeight = document.documentElement.clientHeight
-    // 若使用const 不会将其挂在到window上
-    window.pageWidth = clientWidth / clientHeight > 16 / 9 ? clientHeight * (16 / 9) : clientWidth
-    window.pageHeight = pageWidth / (16 / 9)
-    const string = `<style>html{
-      font-size: ${pageWidth / 100}px
-    }</style>`
-    document.write(string)
+    function updateDashboardSize() {
+      const clientWidth = document.documentElement.clientWidth
+      const clientHeight = document.documentElement.clientHeight
+      window.pageWidth = Math.min(clientWidth, clientHeight * 16 / 9)
+      window.pageHeight = window.pageWidth * 9 / 16
+      document.documentElement.style.fontSize = window.pageWidth / 100 + 'px'
+
+      const root = document.getElementById('root')
+      if (root) {
+        root.style.width = window.pageWidth + 'px'
+        root.style.height = window.pageHeight + 'px'
+        root.style.marginTop = (clientHeight - window.pageHeight) / 2 + 'px'
+      }
+    }
+
+    updateDashboardSize()
+    let resizeFrame
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(resizeFrame)
+      resizeFrame = requestAnimationFrame(updateDashboardSize)
+    })
   </script>
 </head>
 
 <body>
   <div id="root"></div>
   <script>
-    const root = document.querySelector('#root')
-    // root.style.width = pageWidth + 'px';
-    root.style.height = pageHeight + 'px';
-    // 让page上下居中
-    root.style.marginTop = (clientHeight - pageHeight) / 2 + 'px';
+    updateDashboardSize()
   </script>
   <script type="module" src="/src/main.tsx"></script>
 </body>

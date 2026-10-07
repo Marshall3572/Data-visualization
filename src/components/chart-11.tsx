@@ -1,14 +1,13 @@
-import React, { useEffect, useRef } from 'react';
-import * as echarts from 'echarts';
+import React, { useRef } from 'react';
+import { useEcharts } from '../shared/use-echarts';
 import { createEchartsOptions } from '../shared/create-echarts-options';
 import { px } from '../shared/px';
 
 export const Chart11 = () => {
     const divRef = useRef(null);
     const colors = ['#F46064', '#F38E1C', '#1CDB7C', '#8D70F8', '#33A4FA'];
-    useEffect(() => {
-        var myChart = echarts.init(divRef.current);
-        myChart.setOption(createEchartsOptions({
+    useEcharts(divRef, () => {
+        return createEchartsOptions({
             color: colors,
             xAxis: { show: false },
             yAxis: { show: false },
@@ -22,7 +21,7 @@ export const Chart11 = () => {
                     label: {
                         show: true, 
                         position: 'outside',
-                        textStyle: { color: 'white', fontSize: px(20) },
+                        color: 'white', fontSize: px(20),
                         distanceToLabelLine: 0,
                         formatter(options) {
                             return options.value * 100 + '%';
@@ -42,8 +41,8 @@ export const Chart11 = () => {
                     ]
                 }
             ]
-        }));
-    }, [])
+        });
+    });
 
     return (
         <div className="chart11">

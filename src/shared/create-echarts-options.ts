@@ -1,9 +1,9 @@
-import { baseEchartOptions } from "./base-echart-options"
+import { createBaseEchartOptions } from "./base-echart-options"
 import { px } from "./px";
 
 export const createEchartsOptions = (options) => {
     const result = {
-        ...baseEchartOptions,
+        ...createBaseEchartOptions(),
         ...options
     }
     if(!(options?.xAxis?.axisLabel?.fontSize)){

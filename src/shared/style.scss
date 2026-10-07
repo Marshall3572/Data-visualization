@@ -26,7 +26,8 @@ body {
 // 即可让子元素的高度占满父元素（一定要是父子元素，爷孙元素不行）
 #root{
   margin: 0 auto;
-  background: lightgreen;
+  background: #010310;
+  color: white;
   display: flex;
   flex-direction: column;
 }

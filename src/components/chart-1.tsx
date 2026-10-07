@@ -1,16 +1,14 @@
-import React, { useEffect, useRef } from 'react';
-import * as echarts from 'echarts';
+import React, { useRef } from 'react';
+import { useEcharts } from '../shared/use-echarts';
 import { px } from '../shared/px';
-import { baseEchartOptions } from '../shared/base-echart-options';
 import { createEchartsOptions } from '../shared/create-echarts-options';
 
 export const Chart1 = () => {
     // 使用钩子
     const divRef = useRef(null);
     // 挂载后执行
-    useEffect(() => {
-        var myChart = echarts.init(divRef.current);
-        myChart.setOption(createEchartsOptions({
+    useEcharts(divRef, () => {
+        return createEchartsOptions({
             xAxis: {
                 data: ['兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区'],
                 axisTick: { show: false },
@@ -43,8 +41,8 @@ export const Chart1 = () => {
                 type: 'bar',
                 data: [10, 20, 36, 41, 15, 26, 37, 18, 29]
             }]
-        }));
-    }, [])
+        });
+    })
     return (
         <div className="bordered 管辖统计">
             <h2>案发派出所管辖统计</h2>

@@ -1,13 +1,12 @@
-import React, { useEffect, useRef } from 'react';
-import * as echarts from 'echarts';
+import React, { useRef } from 'react';
+import { useEcharts } from '../shared/use-echarts';
 import { createEchartsOptions } from '../shared/create-echarts-options';
 import { px } from '../shared/px';
 
 export const Chart7 = () => {
   const divRef = useRef(null);
-  useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartsOptions({
+  useEcharts(divRef, () => {
+    return createEchartsOptions({
       color: ['#8D70F8', '#33A4FA'],
       xAxis: { show: false },
       yAxis: { show: false },
@@ -20,7 +19,7 @@ export const Chart7 = () => {
           radius: ['75%', '90%'],
           avoidLabelOverlap: false,
           label: {
-            show: true, position: 'inside', textStyle: { color: 'white', fontSize: px(20) },
+            show: true, position: 'inside', color: 'white', fontSize: px(20),
             formatter(options) {
               return options.value * 100 + '%';
             }
@@ -36,8 +35,8 @@ export const Chart7 = () => {
           ]
         }
       ]
-    }));
-  }, []);
+    });
+  });
 
   return (
     <div className="年龄段-图1">

@@ -1,24 +1,24 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import * as echarts from 'echarts';
+import { useEcharts } from '../shared/use-echarts';
 import { createEchartsOptions } from '../shared/create-echarts-options';
-import { px } from '../shared/px';
 import china from '../geo/china.json';
+
+// @ts-ignore
+echarts.registerMap('CN', china);
 
 export const Chart6 = () => {
     const divRef = useRef(null);
     const colors = { '青海省': '#BB31F7', '甘肃省': '#15B8FD', '四川省': '#06E1EE' }
 
-    useEffect(() => {
-        var myChart = echarts.init(divRef.current);
-        // @ts-ignore
-        echarts.registerMap('CN', china);
-        myChart.setOption(createEchartsOptions({
+    useEcharts(divRef, () => {
+        return createEchartsOptions({
             xAxis: { show: false },
             yAxis: { show: false },
             series: [
                 {
                     type: 'map',
-                    mapType: 'CN', // 自定义扩展图表类型
+                    map: 'CN', // 自定义扩展图表类型
                     data: [
                         { name: '甘肃省', value: 1 },
                     ],
@@ -28,15 +28,15 @@ export const Chart6 = () => {
                         areaColor: '#010D3D',
                         color: colors['甘肃省'],
                         borderColor: '#01A7F7',
-                        emphasis: {
-                            label: { color: 'white' },
-                            areaColor: '#5470C6',
-                        },
+                    },
+                    emphasis: {
+                        label: { color: 'white' },
+                        itemStyle: { areaColor: '#5470C6' },
                     }
                 },
                 {
                     type: 'map',
-                    mapType: 'CN', // 自定义扩展图表类型
+                    map: 'CN', // 自定义扩展图表类型
                     data: [
                         { name: '四川省', value: 100 },
                     ],
@@ -44,15 +44,15 @@ export const Chart6 = () => {
                         areaColor: '#010D3D',
                         color: colors['四川省'],
                         borderColor: 'yellow',
-                        emphasis: {
-                            label: { color: 'white' },
-                            areaColor: '#5470C6',
-                        },
+                    },
+                    emphasis: {
+                        label: { color: 'white' },
+                        itemStyle: { areaColor: '#5470C6' },
                     }
                 },
                 {
                     type: 'map',
-                    mapType: 'CN', // 自定义扩展图表类型
+                    map: 'CN', // 自定义扩展图表类型
                     data: [
                         { name: '青海省', value: 100 },
                     ],
@@ -60,15 +60,15 @@ export const Chart6 = () => {
                         areaColor: '#010D3D',
                         color: colors['青海省'],
                         borderColor: '#01A7F7',
-                        emphasis: {
-                            label: { color: 'white' },
-                            areaColor: '#5470C6',
-                        },
+                    },
+                    emphasis: {
+                        label: { color: 'white' },
+                        itemStyle: { areaColor: '#5470C6' },
                     }
                 },
             ]
-        }));
-    }, []);
+        });
+    });
 
     return (
         <div className="bordered 籍贯">

@@ -1,6 +1,6 @@
 import { px } from '../shared/px';
 
-export const baseEchartOptions = {
+export const createBaseEchartOptions = () => ({
     textStyle: {
         fontSize: px(12),
         color: '#79839e'
@@ -15,4 +15,4 @@ export const baseEchartOptions = {
         y2: px(20),
         containLabel:true
     }
-}
+});
