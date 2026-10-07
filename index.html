@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>Data-Visualization</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <!-- 保持大屏的 16:9 比例，并在窗口变化时更新缩放。 -->
+  <script>
+    function updateDashboardSize() {
+      const clientWidth = document.documentElement.clientWidth
+      const clientHeight = document.documentElement.clientHeight
+      window.pageWidth = Math.min(clientWidth, clientHeight * 16 / 9)
+      window.pageHeight = window.pageWidth * 9 / 16
+      document.documentElement.style.fontSize = window.pageWidth / 100 + 'px'
+
+      const root = document.getElementById('root')
+      if (root) {
+        root.style.width = window.pageWidth + 'px'
+        root.style.height = window.pageHeight + 'px'
+        root.style.marginTop = (clientHeight - window.pageHeight) / 2 + 'px'
+      }
+    }
+
+    updateDashboardSize()
+    let resizeFrame
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(resizeFrame)
+      resizeFrame = requestAnimationFrame(updateDashboardSize)
+    })
+  </script>
+<script type="module" crossorigin src="./assets/index.557065fb.js"></script>
+  <link rel="modulepreload" href="./assets/vendor.128374a8.js">
+  <link rel="stylesheet" href="./assets/index.abdfff90.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    updateDashboardSize()
+  </script>
+  
+</body>
+
+</html>
